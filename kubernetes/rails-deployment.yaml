@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: rails
-        image: ttl.sh/seemiller/rails-blog:1d
+        image: seemiller/rails-blog
         ports:
         - containerPort: 3000
         env:
