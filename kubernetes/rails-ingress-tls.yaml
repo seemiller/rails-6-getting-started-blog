@@ -3,7 +3,16 @@ kind: Ingress
 metadata:
   name: rails
   namespace: blog
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: contour
 spec:
+  tls:
+  - secretName: rails-blog-tls-secret
+    hosts:
+      - www.k8squid.com
   rules:
   - host: www.k8squid.com
     http:
